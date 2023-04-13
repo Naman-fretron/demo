@@ -1,0 +1,13 @@
+<div style="margin: 10px">
+  <input
+    type="text"
+    placeholder="search products"
+    [(ngModel)]="searchItem"
+    (keyup)="searchFunc($event)"
+  />
+  <ng-container *ngFor="let item of products$ | async">
+    <li>
+      {{ item.title }}
+    </li>
+  </ng-container>
+</div>
