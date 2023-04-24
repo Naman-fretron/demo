@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-md12">
+        <h3>Product list</h3>
+    </div>
+</div>
+
+<table class="table table-bordered" *ngIf="products$ | async as productData">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>desc</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of productData">
+            <td>{{product.id}}</td>
+            <td>{{product.title}}</td>
+            <td>{{product.description}}</td>
+        </tr>
+    </tbody>
+
+</table>

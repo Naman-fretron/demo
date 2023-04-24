@@ -10,6 +10,7 @@ import { HttpService } from '../http.service';
 export class RxjsComponent implements OnInit {
   searchItem: any
   products$: Observable<any>
+  value = ''
   searchSubject = new Subject<any>()
   constructor(
     private http: HttpService
@@ -25,19 +26,16 @@ export class RxjsComponent implements OnInit {
     let test = of(1,2,3)
 
     let combined = test.pipe(switchMap(first => {
-      console.log(first)
       return this.http.getProductList()
     }))
     
     combined.subscribe((data: any) => {
-      console.log(data)
     })
 
   }
 
   searchFunc(e:any){
     let value = e.target.value;
-    console.log(value,'sea')
     this.searchSubject.next(value)
   }
 
